@@ -11,23 +11,26 @@ body {
 }
 
 h1 {
-  font-family: 'Fredoka One', cursive;  font-size: 4.2rem;
+  font-family: 'Fredoka One', cursive;  font-size: 5.2rem;
   color: #FF206E;
   text-shadow: 3px 0px 2px #FBFF3F, 0px 2px 5px #FBFF3F;
 }
 
 h1:before {
   content: "The ";
-  font-size: 1.8rem;
+  font-size: 2.5rem;
   margin: 2rem 0 -1rem 0;
   display: block;
 }
 
 .bullet {
-
   max-height: 150px;
-
 }
+
+.button {
+  max-height: 170px;
+}
+
 #heart{
   padding: 0 10px;
 }
@@ -36,17 +39,31 @@ form, form input {
 }
 
 form input[type=text], form input[type=submit], form select {
-  font-size: 1rem;
+  font-size: 1.75rem;
   border: 1px solid #66ccbd;
   box-shadow: 0px 2px 2px rgba(0,0,0,0.08);
-  padding: 0.618em 1em;
-  border-radius: 5px;
+  padding: 0.6em 1em;
+  border-radius: 50px;
   background: white;
   color: #e52367;
+  text-align: center;
+  font-family:'Fredoka One';
+  margin-top: 25px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
+
+#doughnut-flavor {
+  padding: auto;
+  outline-width: 0;
+}
+
+#doughnut-style {
+  padding: auto;
+  outline-width: 0;
+}
+
 .italic{
   font-style: italic;
   font-size: 18px;
@@ -70,8 +87,9 @@ form input[type=submit]:hover{
 ul {
   text-align: center;
   max-width: 500px;
-  margin: 2rem auto;
+  margin: 1rem auto;
 }
+
 li{
   list-style: none;
   color: #FF206E;
