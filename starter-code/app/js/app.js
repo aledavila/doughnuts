@@ -62,5 +62,32 @@ $(function() {
 
    });
 
-  
+   $('#doughnut').click(function(event){
+       event.preventDefault();
+
+       var flavor = $('#doughnut-flavor').val();
+       var style = $('#doughnut-style option:selected').val();
+
+       $.ajax({
+           url: 'https://api.doughnuts.ga/doughnuts' + '/:id',
+           method: "DELETE",
+           data: {
+               flavor: flavor,
+               style: style
+           },
+           dataType: "json"
+       })
+       .done(function(data) {
+          $('.doughnut').remove();
+       })
+       .fail(function(err) {
+           if (err) throw err;
+       })
+       .always(function() {
+           console.log('Request completed');
+         });
+       console.log(flavor, style);
+
+   });
+
 });
