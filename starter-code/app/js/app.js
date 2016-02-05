@@ -32,6 +32,34 @@ $(function() {
         }
     }
 
+    $('#new-doughnut').submit(function(event){
+        event.preventDefault();
+
+        var flavor = $('#doughnut-flavor').val();
+        var style = $('#doughnut-style option:selected').val();
+
+        $.ajax({
+            url: 'https://api.doughnuts.ga/doughnuts',
+            method: "POST",
+            data: {
+                flavor: flavor,
+                style: style
+            },
+            dataType: "json"
+        })
+        .done(function(data) {
+            appendDoughnut(data);
+        })
+        .fail(function(err) {
+            if (err) throw err;
+        })
+        .always(function() {
+            console.log('Request completed');
+          });
+        console.log(flavor, style);
+
+    });
+
 
 
 });
