@@ -90,6 +90,15 @@ ul {
   margin: 1rem auto;
 }
 
+a{
+  text-decoration: none !important;
+  outline:none !important;
+}
+a:hover #heart{
+  text-decoration: none;
+}
+
+
 li{
   list-style: none;
   color: #FF206E;
@@ -103,9 +112,23 @@ li:hover{
 #doughnut{
   width: auto;
 }
-a:hover #heart{
-  text-decoration: none;
+
+#modal {
+  margin-top: -250px !important;
+  height: 200px !important;
 }
-a{
-  text-decoration: none;
+
+.ui.modal>.header:not(.ui) {
+  font-size: 25px;
+  text-align: center;
 }
+
+#modal .ui.button {
+  background-color: #FF206E;
+  color: white;
+  float: right;
+  font-size: 18px !important;
+  margin-top: 4%;
+}
+
+
