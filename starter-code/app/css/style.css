@@ -25,8 +25,7 @@ h1:before {
 }
 
 .bullet {
-  width: 10%;
-  height: 10%;
+  max-height: 150px;
 }
 
 form, form input {
