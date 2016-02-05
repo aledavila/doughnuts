@@ -92,8 +92,22 @@ li:hover{
   width: auto;
 }
 
+#modal {
+  margin-top: -250px !important;
+  height: 200px !important;
+}
+
+.ui.modal>.header:not(.ui) {
+  font-size: 25px;
+  text-align: center;
+}
+
 #modal .ui.button {
   background-color: #FF206E;
   color: white;
+  float: right;
+  font-size: 18px !important;
+  margin-top: 4%;
 }
+
 
