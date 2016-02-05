@@ -19,7 +19,7 @@ $(function() {
 
         $('#doughnuts').prepend('<a href=""> ' + '<li class="doughnut">' +
             '<span class="italic">' + doughnut.flavor +'</span>' +
-            ' - ' + doughnut.style + 
+            '<span class="glyphicon glyphicon-heart-empty" id="heart"></span>' + doughnut.style + 
             '</li>' + '</a>');
     }
 
@@ -62,6 +62,5 @@ $(function() {
 
    });
 
-
-
+  
 });
