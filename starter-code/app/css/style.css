@@ -24,7 +24,7 @@ h1:before {
 }
 
 .bullet {
-    max-height: 150px; 
+    max-height: 150px;
 }
 #heart{
   padding: 0 10px;
@@ -70,6 +70,14 @@ ul {
   max-width: 500px;
   margin: 2rem auto;
 }
+a{
+  text-decoration: none !important;
+  outline:none !important;
+}
+a:hover #heart{
+  text-decoration: none;
+}
+
 li{
   list-style: none;
   color: #FF206E;
@@ -83,9 +91,9 @@ li:hover{
 #doughnut{
   width: auto;
 }
-a:hover #heart{
-  text-decoration: none;
+
+#modal .ui.button {
+  background-color: #FF206E;
+  color: white;
 }
-a{
-  text-decoration: none !important;
-}
+
