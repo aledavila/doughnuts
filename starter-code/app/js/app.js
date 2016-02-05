@@ -18,8 +18,9 @@ $(function() {
     var appendDoughnut = function(doughnut) {
 
         $('#doughnuts').prepend('<a href=""> ' + '<li class="doughnut">' +
-            doughnut.style + ' - ' +
-            doughnut.flavor + '</li>' + '</a>');
+            '<span class="italic">' + doughnut.flavor +'</span>' +
+            ' - ' + doughnut.style + 
+            '</li>' + '</a>');
     }
 
    var displayDoughnuts = function(doughnuts) {

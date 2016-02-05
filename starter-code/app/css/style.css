@@ -11,10 +11,9 @@ body {
 }
 
 h1 {
-  font-family: 'Sniglet', Helvetica, cursive;
-  letter-spacing: -2px;
-  font-size: 4.2rem;
-  text-shadow: 3px 0px 2px rgba(0,0,125,0.24), 0px 2px 5px rgba(255,255,255,0.7);
+  font-family: 'Fredoka One', cursive;  font-size: 4.2rem;
+  color: #FF206E;
+  text-shadow: 3px 0px 2px #FBFF3F, 0px 2px 5px #FBFF3F;
 }
 
 h1:before {
@@ -25,11 +24,13 @@ h1:before {
 }
 
 .bullet {
+
   max-height: 150px;
+
 }
 
 form, form input {
-  font-size: 1rem;
+  font-size: 1rem;;
 }
 
 form input[type=text], form input[type=submit], form select {
@@ -39,20 +40,27 @@ form input[type=text], form input[type=submit], form select {
   padding: 0.618em 1em;
   border-radius: 5px;
   background: white;
-  color: rgba(0,0,0,0.75);
+  color: #e52367;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
+.italic{
+  font-style: italic;
+}
 
 form input[type=submit]{
   font-weight: bold;
+  background-color: #FF206E;
+  color: white;
 }
 
 form input[type=submit]:hover{
   cursor: pointer;
   position: relative;
   top: -1px;
+  background-color: #FDFF99;
+  color: #FF206E;
 }
 
 ul {
@@ -60,7 +68,13 @@ ul {
   max-width: 300px;
   margin: 2rem auto;
 }
-
-li {
+li{
   list-style: none;
+  color: #FF206E;
+  /*color: white;*/
+}
+li:hover{
+  list-style: none;
+  color: #FBFF3F;
+  /*color: white;*/
 }
