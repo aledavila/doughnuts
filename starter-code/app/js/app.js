@@ -105,7 +105,6 @@ $(function() {
        .always(function() {
            // console.log('Request completed');
         });
-       // console.log(flavor, style);
     
     };
     
