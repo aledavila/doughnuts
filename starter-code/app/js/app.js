@@ -1,6 +1,7 @@
 // jQuery Document Ready
 $(function() {
    // var apiRoot = 'https://api.doughnuts.ga/doughnuts';
+    var loadDoughnuts = function() {
 
    $.ajax({
            url: 'https://api.doughnuts.ga/doughnuts',
@@ -13,7 +14,8 @@ $(function() {
        })
        .fail(function(err) {
            if (err) throw err;
-       })
+        })
+    }
 
     var appendDoughnut = function(doughnut) {
 
@@ -21,7 +23,7 @@ $(function() {
             '<span class="italic">' + doughnut.flavor +'</span>' +
             '<span class="glyphicon glyphicon-heart-empty" id="heart"></span>' + doughnut.style + 
             '</li>' + '</a>');
-    }
+    };
 
    var displayDoughnuts = function(doughnuts) {
        if (!doughnuts) {
@@ -32,7 +34,15 @@ $(function() {
            var doughnut = doughnuts[i];
            appendDoughnut(doughnut);
        }
-   }
+        
+        $('.doughnut').click(function() {
+        var doughnutId = $(this).data('doughnut-id');
+        console.log('Doughnut Id to delete: ', doughnutId);
+
+        deleteDoughnut(doughnutId);
+    });
+
+   };
 
    $('#new-doughnut').submit(function(event){
        event.preventDefault();
@@ -62,32 +72,28 @@ $(function() {
 
    });
 
-   $('#doughnut').click(function(event){
-       event.preventDefault();
-
-       var flavor = $('#doughnut-flavor').val();
-       var style = $('#doughnut-style option:selected').val();
-
+    var deleteDoughnut = function(doughnutId){
+  
        $.ajax({
-           url: 'https://api.doughnuts.ga/doughnuts' + '/:id',
+           url: 'https://api.doughnuts.ga/doughnuts' + '',
            method: "DELETE",
-           data: {
-               flavor: flavor,
-               style: style
-           },
+           data: {},
            dataType: "json"
        })
        .done(function(data) {
-          $('.doughnut').remove();
+        console.log('deleted!');
+
+        loadDoughnuts();
        })
        .fail(function(err) {
            if (err) throw err;
        })
        .always(function() {
            console.log('Request completed');
-         });
+        });
        console.log(flavor, style);
-
-   });
-
+    
+    };
+    
+    loadDoughnuts();
 });
