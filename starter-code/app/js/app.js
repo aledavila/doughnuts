@@ -16,12 +16,10 @@ $(function() {
        if (!doughnuts) {
            return;
        }
-
        for (var i = 0; i < doughnuts.length; i++) {
            var doughnut = doughnuts[i];
            appendDoughnut(doughnut);
        }
-
    };
 
    $.ajax({
@@ -36,22 +34,29 @@ $(function() {
            $('.doughnut').on('click', function() {
                 var flavor = $(this).data('doughnut-flavor');
                 var style = $(this).data('doughnut-style');
-                var doughnutId = $(this).data('doughnut-id');
+                // var doughnutId = $(this).data('doughnut-id');
 
                 $('#modal .header').text(flavor + ' - ' + style);
                 $('#modal').modal('show');
 
-                $('#delete').click(function() {
-                    // var doughnutId = $(this).data('doughnut-id');
-                    console.log('Doughnut Id to delete: ', doughnutId);
+            
 
-                    deleteDoughnut(doughnutId);
-                });
-           });
+            });
+               $('#delete').click(function() {
+                var doughnutId = $(this).data('doughnut-id');
+            // console.log('Doughnut Id to delete: ', doughnutId);
+            deleteDoughnut(doughnutId);
+            // console.log('hello');
+
+            });
+
+            
+
        })
        .fail(function(err) {
            if (err) throw err;
        })
+
 
    $('#new-doughnut').submit(function(event){
        event.preventDefault();
@@ -90,7 +95,7 @@ $(function() {
            dataType: "json"
        })
        .done(function(data) {
-            console.log('deleted!');
+            // console.log('deleted!');
             $(this).remove(".doughnut");
             $('#modal').modal('hide');
        })
