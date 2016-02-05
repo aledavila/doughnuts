@@ -29,6 +29,7 @@ h1:before {
 
 .button {
   max-height: 170px;
+  outline-width: 0;
 }
 
 #heart{
