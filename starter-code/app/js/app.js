@@ -49,9 +49,6 @@ $(function() {
             // console.log('hello');
 
             });
-
-            
-
        })
        .fail(function(err) {
            if (err) throw err;
