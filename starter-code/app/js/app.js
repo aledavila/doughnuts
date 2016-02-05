@@ -1,8 +1,6 @@
 // jQuery Document Ready
 $(function() {
    // var apiRoot = 'https://api.doughnuts.ga/doughnuts';
-    var loadDoughnuts = function() {
-
 
     var appendDoughnut = function(doughnut) {
 
@@ -27,7 +25,7 @@ $(function() {
         var doughnutId = $(this).data('doughnut-id');
         console.log('Doughnut Id to delete: ', doughnutId);
 
-        deleteDoughnut(doughnutId);
+        // deleteDoughnut(doughnutId);
     });
 
    };
@@ -79,28 +77,26 @@ $(function() {
 
    });
 
-    var deleteDoughnut = function(doughnutId){
+    // var deleteDoughnut = function(doughnutId){
   
-       $.ajax({
-           url: 'https://api.doughnuts.ga/doughnuts' + '',
-           method: "DELETE",
-           data: {},
-           dataType: "json"
-       })
-       .done(function(data) {
-        console.log('deleted!');
+    //    $.ajax({
+    //        url: 'https://api.doughnuts.ga/doughnuts' + '',
+    //        method: "DELETE",
+    //        data: {},
+    //        dataType: "json"
+    //    })
+    //    .done(function(data) {
+    //     console.log('deleted!');
 
-        loadDoughnuts();
-       })
-       .fail(function(err) {
-           if (err) throw err;
-       })
-       .always(function() {
-           console.log('Request completed');
-        });
-       console.log(flavor, style);
+    //    })
+    //    .fail(function(err) {
+    //        if (err) throw err;
+    //    })
+    //    .always(function() {
+    //        console.log('Request completed');
+    //     });
+    //    console.log(flavor, style);
     
-    };
+    // };
     
-    loadDoughnuts();
 });
