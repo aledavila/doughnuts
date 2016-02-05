@@ -16,7 +16,7 @@ $(function() {
         })
 
     var appendDoughnut = function(doughnut) {
-        $('#doughnuts').append('<li class="doughnut">' +
+        $('#doughnuts').prepend('<li class="doughnut">' +
             doughnut.style + ' - ' +
             doughnut.flavor + '</li>');
     }
