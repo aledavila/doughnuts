@@ -3,27 +3,15 @@ $(function() {
    // var apiRoot = 'https://api.doughnuts.ga/doughnuts';
     var loadDoughnuts = function() {
 
-   $.ajax({
-           url: 'https://api.doughnuts.ga/doughnuts',
-           method: "GET",
-           data: {}
-       })
-       .done(function(data) {
-           var doughnuts = data;
-           displayDoughnuts(doughnuts);
-       })
-       .fail(function(err) {
-           if (err) throw err;
-        })
-    }
 
     var appendDoughnut = function(doughnut) {
 
-        $('#doughnuts').prepend('<a href=""> ' + '<li class="doughnut">' +
+        $('#doughnuts').prepend('<a href="#"> ' + '<li class="doughnut" data-doughnut-flavor="' + doughnut.flavor +
+            '" data-doughnut-style="' + doughnut.style + '">' +
             '<span class="italic">' + doughnut.flavor +'</span>' +
-            '<span class="glyphicon glyphicon-heart-empty" id="heart"></span>' + doughnut.style + 
-            '</li>' + '</a>');
-    };
+            '<span class="glyphicon glyphicon-heart-empty" id="heart"></span>' + doughnut.style +
+            '</li></a>');
+    }
 
    var displayDoughnuts = function(doughnuts) {
        if (!doughnuts) {
@@ -43,6 +31,25 @@ $(function() {
     });
 
    };
+
+   $.ajax({
+           url: 'https://api.doughnuts.ga/doughnuts',
+           method: "GET",
+           data: {}
+       })
+       .done(function(data) {
+           var doughnuts = data;
+           displayDoughnuts(doughnuts);
+           $('.doughnut').on('click', function() {
+            var flavor = $(this).data('doughnut-flavor');
+            var style = $(this).data('doughnut-style');
+            $('#modal .header').text(flavor + ' - ' + style);
+             $('#modal').modal('show');
+           });
+       })
+       .fail(function(err) {
+           if (err) throw err;
+       })
 
    $('#new-doughnut').submit(function(event){
        event.preventDefault();
