@@ -26,7 +26,9 @@ h1:before {
 .bullet {
     max-height: 150px; 
 }
-
+#heart{
+  padding: 0 10px;
+}
 form, form input {
   font-size: 1rem;;
 }
@@ -45,6 +47,8 @@ form input[type=text], form input[type=submit], form select {
 }
 .italic{
   font-style: italic;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 form input[type=submit]{
@@ -62,17 +66,26 @@ form input[type=submit]:hover{
 }
 
 ul {
-  text-align: left;
-  max-width: 300px;
+  text-align: center;
+  max-width: 500px;
   margin: 2rem auto;
 }
 li{
   list-style: none;
   color: #FF206E;
-  /*color: white;*/
 }
 li:hover{
   list-style: none;
   color: #FBFF3F;
-  /*color: white;*/
+  text-decoration: none;
+
+}
+#doughnut{
+  width: auto;
+}
+a:hover #heart{
+  text-decoration: none;
+}
+a{
+  text-decoration: none;
 }
