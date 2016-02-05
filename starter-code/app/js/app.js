@@ -5,7 +5,7 @@ $(function() {
     var appendDoughnut = function(doughnut) {
 
         $('#doughnuts').prepend('<a href="#"> ' + '<li class="doughnut" data-doughnut-flavor="' + doughnut.flavor +
-            '" data-doughnut-style="' + doughnut.style + 
+            '" data-doughnut-style="' + doughnut.style +
             '" data-doughnut-id="' + doughnut.id + '">' +
             '<span class="italic">' + doughnut.flavor +'</span>' +
             '<span class="glyphicon glyphicon-heart-empty" id="heart"></span>' + doughnut.style +
@@ -38,9 +38,6 @@ $(function() {
 
                 $('#modal .header').text(flavor + ' - ' + style);
                 $('#modal').modal('show');
-
-            
-
             });
                $('#delete').click(function() {
                 var doughnutId = $(this).data('doughnut-id');
@@ -84,7 +81,7 @@ $(function() {
    });
 
     var deleteDoughnut = function(doughnutId){
-  
+
        $.ajax({
            url: 'https://api.doughnuts.ga/doughnuts/' + doughnutId,
            method: "DELETE",
@@ -93,8 +90,10 @@ $(function() {
        })
        .done(function(data) {
             // console.log('deleted!');
-            $(this).remove(".doughnut");
+            $('.doughnut').remove('data-doughnut-style');
+            console.log('wtf')
             $('#modal').modal('hide');
+
        })
        .fail(function(err) {
            if (err) throw err;
@@ -102,7 +101,7 @@ $(function() {
        .always(function() {
            // console.log('Request completed');
         });
-    
+
     };
-    
+
 });
