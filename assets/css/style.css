@@ -96,20 +96,22 @@ ul {
 a{
   text-decoration: none !important;
   outline:none !important;
+  color: #FF206E ;
 }
-a:hover #heart{
-  text-decoration: none;
+a:hover {
+  color: #FBFF3F;
 }
 
 li{
   list-style: none;
-  color: #FF206E;
+  outline: none !important;
 }
-li:hover{
-  list-style: none;
-  color: #FBFF3F;
+
+li:hover {
+  outline: none !important;
   text-decoration: none;
 }
+
 #doughnut{
   width: auto;
 }
@@ -119,14 +121,13 @@ li:hover{
   height: 200px !important;
   border-radius: 25px;
   width: 500px;
-  margin-right: 390px;
-  margin-left: auto;
+  margin-left: -250px;
 }
 
 .ui.modal>.header:not(.ui) {
   font-size: 25px;
   text-align: center;
-  background-color: #41DAE4
+  background-color: #41DAE4;
 }
 
 #modal .ui.button {
@@ -135,9 +136,12 @@ li:hover{
   float: right;
   font-size: 18px !important;
   margin-top: 4%;
-}
-#delete{
-  margin-right: 180px;
+  margin-right: 200px;
   border-radius: 15px;
 }
 
+.ui.button.delete {
+  color: #FF206E ;
+  font-weight: 700;
+  background-color: #FBFF3F !important;
+}

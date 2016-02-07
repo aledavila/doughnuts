@@ -4,12 +4,12 @@ $(function() {
 
     var appendDoughnut = function(doughnut) {
 
-        $('#doughnuts').prepend('<a href="#"> ' + '<li class="doughnut" data-doughnut-flavor="' + doughnut.flavor +
-            '" data-doughnut-style="' + doughnut.style +
-            '" data-doughnut-id="' + doughnut.id + '">' +
+        $('#doughnuts').prepend('<li class="doughnut" data-doughnut-flavor="' + doughnut.flavor +
+            '" data-doughnut-style="' + doughnut.style + '">' +
+            '<a href="#" data-doughnut-id="' + doughnut.id + '"> ' +
             '<span class="italic">' + doughnut.flavor +'</span>' +
             '<span class="glyphicon glyphicon-heart-empty" id="heart"></span>' + doughnut.style +
-            '</li></a>');
+            '</a></li><button class="ui button delete" data-doughnut-id="' + doughnut.id + '">Delete</button>');
     }
 
    var displayDoughnuts = function(doughnuts) {
@@ -32,19 +32,21 @@ $(function() {
            displayDoughnuts(doughnuts);
 
            $('.doughnut').on('click', function() {
-                var flavor = $(this).data('doughnut-flavor');
-                var style = $(this).data('doughnut-style');
+              var flavor = $(this).data('doughnut-flavor');
+              var style = $(this).data('doughnut-style');
                 // var doughnutId = $(this).data('doughnut-id');
 
-                $('#modal .header').text(flavor + ' - ' + style);
-                $('#modal').modal('show');
+              $('#modal .header').text(flavor + ' - ' + style);
+              $('#modal').modal('show');
             });
-               $('#delete').click(function() {
-                var doughnutId = $(this).data('doughnut-id');
-            // console.log('Doughnut Id to delete: ', doughnutId);
-            deleteDoughnut(doughnutId);
-            // console.log('hello');
-
+            $('#close').click(function() {
+              $('#modal').modal('hide');
+            });
+            $('.delete').click(function() {
+              var doughnutId = $(this).data('doughnut-id');
+              console.log('Doughnut Id to delete: ', doughnutId);
+              deleteDoughnut(doughnutId);
+              $('.doughnut'+ doughnutId).remove();
             });
        })
        .fail(function(err) {
@@ -89,10 +91,7 @@ $(function() {
            dataType: "json"
        })
        .done(function(data) {
-            // console.log('deleted!');
-            $('.doughnut').remove('data-doughnut-style');
-            console.log('wtf')
-            $('#modal').modal('hide');
+          console.log('deleted!');
 
        })
        .fail(function(err) {
